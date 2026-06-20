@@ -72,6 +72,10 @@
       "id": "shadow",
       "label": "Shadow",
       "default": "#CBD5E1"
+    },
+    {
+      "type": "header",
+      "content": "header"
     }
   ]
 }
