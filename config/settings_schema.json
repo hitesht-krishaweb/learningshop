@@ -1,13 +1,78 @@
 [
   {
-    "name": "Theme Settings",
-    "settings": [
-      {
-        "type": "color",
-        "id": "primary_color",
-        "label": "Primary Color",
-        "default": "#000000"
-      }
-    ]
-  }
+  "name": "Corporate Blue",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient",
+      "label": "Background Gradient"
+    },
+    {
+      "type": "color",
+      "id": "text",
+      "label": "Text",
+      "default": "#475569"
+    },
+    {
+      "type": "color",
+      "id": "heading",
+      "label": "Heading",
+      "default": "#0F172A"
+    },
+    {
+      "type": "color",
+      "id": "link",
+      "label": "Link",
+      "default": "#2563EB"
+    },
+    {
+      "type": "color",
+      "id": "link_hover",
+      "label": "Link Hover",
+      "default": "#1D4ED8"
+    },
+    {
+      "type": "color",
+      "id": "button",
+      "label": "Button Background",
+      "default": "#2563EB"
+    },
+    {
+      "type": "color",
+      "id": "button_label",
+      "label": "Button Text",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button",
+      "label": "Secondary Button",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_label",
+      "label": "Secondary Button Text",
+      "default": "#2563EB"
+    },
+    {
+      "type": "color",
+      "id": "border",
+      "label": "Border",
+      "default": "#E2E8F0"
+    },
+    {
+      "type": "color",
+      "id": "shadow",
+      "label": "Shadow",
+      "default": "#CBD5E1"
+    }
+  ]
+}
 ]
