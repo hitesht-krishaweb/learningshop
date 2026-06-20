@@ -4,6 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  <style>
+    :root {
+      --color-primary: {{ settings.color_primary }};
+      --color-secondary: {{ settings.color_secondary }};
+      --color-heading: {{ settings.color_heading }};
+      --color-text: {{ settings.color_text }};
+      --color-link: {{ settings.color_link }};
+      --color-link-hover: {{ settings.color_link_hover }};
+      --color-button-bg: {{ settings.color_button_bg }};
+      --color-button-text: {{ settings.color_button_text }};
+      --color-background: {{ settings.color_background }};
+      --color-border: {{ settings.color_border }};
+    }
+  </style>
+
   {{ content_for_header }}
 
   {{ 'base.css' | asset_url | stylesheet_tag }}
