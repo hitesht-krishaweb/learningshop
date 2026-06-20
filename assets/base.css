@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.page-width {
+  max-width: 1200px;
+  margin: 0 auto;
+}
