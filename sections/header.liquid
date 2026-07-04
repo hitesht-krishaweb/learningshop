@@ -1,18 +1,51 @@
-<header class="site-header">
-
-  <div class="page-width">
-
-    <a href="{{ routes.root_url }}">
-      {{ shop.name }}
-    </a>
-
-  </div>
-
-</header>
+ <header id="site-header" class="fixed inset-x-0 top-0 z-50">
+      <div class="container-hia flex h-20 items-center justify-between">
+        <a aria-label="HIA — Highways Investor Association home"
+          class="flex flex-col items-start justify-center gap-1 active" href="index.html" data-status="active"
+          aria-current="page">
+          {% if section.settings.headerlogo %}
+            {% assign header_logo = section.settings.headerlogo | image_url %}
+          {% else %}
+            {% assign header_logo = 'Logo.png' | asset_url %}
+          {% endif %}
+          <img src="{{ header_logo }}" alt="HIA Logo" class="h-12 w-auto" />
+        </a>
+        <nav class="hidden items-center gap-1 lg:flex"><a
+            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white rounded-full px-4 py-2 text-sm font-semibold text-white bg-white/15"
+            href="index.html" data-status="active" aria-current="page">Home</a><a href="about.html"
+            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">About</a><a
+            href="members.html"
+            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Members</a><a
+            href="policies.html"
+            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Policies</a><a
+            href="insights.html"
+            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Insights</a><a
+            href="events.html"
+            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Events</a><a
+            href="leadership.html"
+            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Leadership</a><a
+            href="contact.html"
+            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Contact</a>
+        </nav><button class="lg:hidden text-white" aria-label="Toggle menu"><svg xmlns="http://www.w3.org/2000/svg"
+            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6" aria-hidden="true">
+            <path d="M4 5h16"></path>
+            <path d="M4 12h16"></path>
+            <path d="M4 19h16"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
 
 {% schema %}
 {
   "name": "Header",
-  "settings": []
+  "settings": [
+    {
+      "type" : "image_picker",
+      "id" : "headerlogo",
+      "label" : "Header Logo"
+    }
+  ]
 }
 {% endschema %}

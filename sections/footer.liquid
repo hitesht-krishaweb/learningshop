@@ -1,13 +1,109 @@
-<footer class="site-footer">
+<footer class="gradient-navy text-white">
+      <div class="container-hia grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
+        <div>
+          <a aria-label="HIA — Highways Investor Association home"
+            class="flex flex-col items-start justify-center gap-1 active" href="index.html" data-status="active"
+            aria-current="page">
+            {% if section.settings.footerlogo %}
+                {% assign footer_logo = section.settings.footerlogo | image_url %}
+            {% else %}
+                {% assign footer_logo = 'Logo.png' | asset_url %}
+            {% endif %}
+            <img src="{{ footer_logo }}" alt="HIA Logo" class="h-14 w-auto" />
+          </a>
+          <p class="mt-5 max-w-xs text-sm leading-relaxed text-white/70">{{ section.settings.short_description }}</p>
+          <div class="mt-6 flex gap-3">
+            <a href="https://www.linkedin.com/company/highways-investor-association/posts/?feedView=all&viewAsMember=true"
+              target="_blank" aria-label="LinkedIn"
+              class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-secondary"><svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-linkedin h-4 w-4" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg></a>
+            <a href="https://www.youtube.com/@HighwayOperatorsAssociation" target="_blank" aria-label="YouTube"
+              class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-secondary"><svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-youtube h-4 w-4" aria-hidden="true">
+                <path
+                  d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17">
+                </path>
+                <path d="m10 15 5-3-5-3z"></path>
+              </svg></a>
+            <a href="https://www.facebook.com/people/Highway-Operators-Association-of-India/61586115613704/"
+              aria-label="Facebook" target="_blank"
+              class="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-secondary"><svg
+                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-facebook h-4 w-4" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-white/90">Association</h3>
+          {% assign association_menu = linklists[section.settings.association_menu] %}
 
-  <div class="page-width">
-
-    <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</p>
-    <p>{{ section.settings.footer_text }}</p>
-
-  </div>
-
-</footer>
+          {% if association_menu.links.size > 0 %}
+            <ul class="mt-5 space-y-3">
+              {% for link in association_menu.links %}
+                <li>
+                  <a
+                    href="{{ link.url }}"
+                    class="text-sm text-white/70 transition-colors hover:text-sky"
+                  >
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-white/90">Engage</h3>
+          <ul class="mt-5 space-y-3">
+            <li><a href="members.html" class="text-sm text-white/70 transition-colors hover:text-sky">Membership</a>
+            </li>
+            <li><a href="policies.html" class="text-sm text-white/70 transition-colors hover:text-sky">Policies</a></li>
+            <li><a href="events.html" class="text-sm text-white/70 transition-colors hover:text-sky">Events</a></li>
+            <!-- <li><a href="publications.html"
+                class="text-sm text-white/70 transition-colors hover:text-sky">Publications</a></li> -->
+            <li><a href="insights.html" class="text-sm text-white/70 transition-colors hover:text-sky">Insights</a></li>
+            <li><a href="contact.html" class="text-sm text-white/70 transition-colors hover:text-sky">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-white/90">{{ section.settings.newsletter_label }}</h3>
+          <p class="mt-5 text-sm text-white/70"{{ section.settings.newsletter_content }}</p>
+          <form class="mt-4 flex overflow-hidden rounded-full bg-white/10 p-1"><input type="email" required=""
+              placeholder="Work email"
+              class="w-full bg-transparent px-4 text-sm text-white placeholder:text-white/50 focus:outline-none"
+              aria-label="Email address" /><button type="submit"
+              class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-secondary"
+              aria-label="Subscribe"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-arrow-right h-4 w-4" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg></button></form>
+          <p class="mt-6 text-sm text-white/70"><strong>Address:</strong> HIA Secretariat, New Delhi – 110 001<br />
+            <strong>Email: </strong><a href="mailto:info@hia.in" class="hover:text-sky">info@hia.in</a>
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-white/10">
+        <div
+          class="container-hia flex flex-col items-center justify-between gap-3 py-6 text-xs text-white/55 md:flex-row">
+          <p>© 2026 Highways Investor Association. All rights reserved.</p>
+          <p>Formerly Highway Operators Association of India (HOA(I))</p>
+          <div class="flex gap-4"><a href="index.html#" class="hover:text-white/80">Privacy Policy</a><a
+              href="index.html#" class="hover:text-white/80">Terms of Use</a></div>
+        </div>
+      </div>
+    </footer>
 
 {% schema %}
 {
@@ -17,6 +113,39 @@
         "type" : "text",
         "id" : "footer_text",
         "label" : "Footer Text" 
+    },
+    {
+      "type" : "image_picker",
+      "id" : "footerlogo",
+      "label" : "Footer Logo"
+    },
+    {
+        "type" : "textarea",
+        "id" : "short_description",
+        "label" : "Short Description",
+        "default" : "The collective voice of India's leading highway investors, asset managers, and concessionaires — advancing safer, smarter, and more sustainable mobility." 
+    },
+    {
+      "type": "link_list",
+      "id": "association_menu",
+      "label": "Association Menu",
+    },
+    {
+      "type": "link_list",
+      "id": "engage_menu",
+      "label": "Engage Menu",
+    },
+    {
+      "type": "text",
+      "id": "newsletter_label",
+      "label": "Newsletter Label",
+      "default": "Newsletter"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_content",
+      "label": "Newsletter Content",
+      "default": "Insights shaping India's highway investment landscape, in your inbox."
     }
   ]
 }
