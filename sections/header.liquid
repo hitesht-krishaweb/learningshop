@@ -10,23 +10,14 @@
           {% endif %}
           <img src="{{ header_logo }}" alt="HIA Logo" class="h-12 w-auto" />
         </a>
-        <nav class="hidden items-center gap-1 lg:flex"><a
+        <nav class="hidden items-center gap-1 lg:flex">
+        {% for link in section.settings.header_menu  %}
+            <a
             class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white rounded-full px-4 py-2 text-sm font-semibold text-white bg-white/15"
-            href="index.html" data-status="active" aria-current="page">Home</a><a href="about.html"
-            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">About</a><a
-            href="members.html"
-            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Members</a><a
-            href="policies.html"
-            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Policies</a><a
-            href="insights.html"
-            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Insights</a><a
-            href="events.html"
-            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Events</a><a
-            href="leadership.html"
-            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Leadership</a><a
-            href="contact.html"
-            class="rounded-full px-4 py-2 text-sm font-medium transition-colors text-white/85 hover:bg-white/10 hover:text-white">Contact</a>
-        </nav><button class="lg:hidden text-white" aria-label="Toggle menu"><svg xmlns="http://www.w3.org/2000/svg"
+            href="{{link.url}}" data-status="active" aria-current="page">{{link.title}}</a>
+        {% endfor %}
+        </nav>
+        <button class="lg:hidden text-white" aria-label="Toggle menu"><svg xmlns="http://www.w3.org/2000/svg"
             width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-6 w-6" aria-hidden="true">
             <path d="M4 5h16"></path>
@@ -45,6 +36,11 @@
       "type" : "image_picker",
       "id" : "headerlogo",
       "label" : "Header Logo"
+    },
+    {
+      "type" : "link_list",
+      "id" : "header_menu",
+      "label" : "Select Menu"
     }
   ]
 }
